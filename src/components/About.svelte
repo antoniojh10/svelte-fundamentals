@@ -1,12 +1,12 @@
 <script>
   import Button from "./Button.svelte";
+  import { count } from "../store/store.js";
   let someText = `Frontend Developer at Platzi`;
-  let count = 0;
 
   let styles = { darkMode: false };
 
   function handleClick() {
-    count = count + 1;
+    count.update((n) => n + 1);
   }
 
   function toggle() {
@@ -22,9 +22,9 @@
     <p>Hello Dark Mode</p>
   {/if}
 
-  <h1>{count === 0 ? "Haz click abajo!" : count}</h1>
+  <h1>{$count === 0 ? "Haz click abajo!" : $count}</h1>
 
-  <Button text="Click" {count} on:click={handleClick} />
+  <Button text="Click" {$count} on:click={handleClick} />
   <button on:click={handleClick}>Click</button>
 
   <Button

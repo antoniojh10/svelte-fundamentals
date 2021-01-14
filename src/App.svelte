@@ -4,6 +4,8 @@
   import Person from "./components/Person.svelte";
   import Skills from "./components/Skills.svelte";
   import Input from "./components/Input.svelte";
+  import Photos from "./components/Photos.svelte";
+  import ButtonCount from "./components/ButtonCount.svelte";
 
   export let name;
   export let lastName;
@@ -24,10 +26,14 @@
   <Text anotherText="Hello world with props" />
   <Text />
 
+  <ButtonCount />
+
   <Person {...data} />
   <Skills />
 
   <Input />
+
+  <Photos />
   <img src={svelteLogo} alt="logo" />
 </main>
 
