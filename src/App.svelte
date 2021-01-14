@@ -1,15 +1,29 @@
 <script>
   import About from "./components/About.svelte";
+  import Text from "./components/Text.svelte";
+  import Person from "./components/Person.svelte";
 
   export let name;
   export let lastName;
+  let age = 25;
 
   let svelteLogo = "https://arepa.s3.amazonaws.com/svelte-logo.png";
+
+  const data = {
+    name: "Antonio",
+    lastName: "Hernández",
+    age: 25
+  };
 </script>
 
 <main>
   <h1>Hello {name} {lastName}!</h1>
   <About />
+  <Text anotherText="Hello world with props" />
+  <Text />
+  <Person {name} {lastName} {age} />
+  <Person name={data.name} lastName={data.lastName} age={data.age} />
+  <Person {...data} />
   <img src={svelteLogo} alt="logo" />
 </main>
 
@@ -39,11 +53,6 @@
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
-  }
-
-  p {
-    color: var(--theme-color);
-    font-size: 22px;
   }
 
   @media (min-width: 640px) {
